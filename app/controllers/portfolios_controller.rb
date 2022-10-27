@@ -9,7 +9,6 @@ class PortfoliosController < ApplicationController
 
     def create
         @portfolio = Portfolio.new(portfolio_params)
-    
         respond_to do |format|
           if @portfolio.save
             format.html { redirect_to portfolios_path, notice: 'Portfolio  created.' }
@@ -20,8 +19,7 @@ class PortfoliosController < ApplicationController
     end
 
     def edit
-        
-        @portfolio = Portfolio.find(params[:id])
+      @portfolio = Portfolio.find(params[:id])
     end
    
     def update
@@ -42,6 +40,14 @@ class PortfoliosController < ApplicationController
       @portfolio = Portfolio.find(params[:id])
     end
  
+    def destroy
+      @portfolio = Portfolio.find(params[:id])
+    @portfolio.destroy
+    respond_to do |format|
+      format.html{redirect_to  portfolios_path, notice: "Portfolio was successfully removed"}
+    end
+    end
+
 
 
 
