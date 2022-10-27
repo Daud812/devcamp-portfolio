@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  
     def index
         @portfolio=Portfolio.all
     end
@@ -19,11 +20,11 @@ class PortfoliosController < ApplicationController
     end
 
     def edit
-      @portfolio = Portfolio.find(params[:id])
+      @portfolio = Portfolio.friendly.find(params[:id])
     end
    
     def update
-      @portfolio = Portfolio.find(params[:id])
+      @portfolio = Portfolio.friendly.find(params[:id])
       respond_to do |format|
         if @portfolio.update(portfolio_params)
           format.html { redirect_to portfolios_path, notice: "Portfolio was successfully updated." }
@@ -37,11 +38,11 @@ class PortfoliosController < ApplicationController
 
 
     def show
-      @portfolio = Portfolio.find(params[:id])
+      @portfolio = Portfolio.friendly.find(params[:id])
     end
  
     def destroy
-      @portfolio = Portfolio.find(params[:id])
+      @portfolio = Portfolio.friendly.find(params[:id])
     @portfolio.destroy
     respond_to do |format|
       format.html{redirect_to  portfolios_path, notice: "Portfolio was successfully removed"}
@@ -49,7 +50,7 @@ class PortfoliosController < ApplicationController
     end
 
 
-
+    
 
       def portfolio_params
         params.require(:portfolio).permit(:titel,:subtitel, :body,)
