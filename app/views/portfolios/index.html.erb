@@ -3,10 +3,10 @@
 
 <% @portfolio.each do |portfolio_items|%>
 
-<h3><%=portfolio_items.titel %></h3>
+<h4><%=link_to portfolio_items.titel,portfolio_path(portfolio_items) %></h4>
 <p><%=portfolio_items.subtitel %></p>
 <p><%=portfolio_items.body %></p>
-<p><%=portfolio_items.main_image %></p>
 <p><%= image_tag portfolio_items.thumb_image if !portfolio_items.thumb_image.nil?%></p>
-<%=link_to "Edit",edit_portfolio_path(portfolio_items.id) %>
+<%=link_to "Edit",edit_portfolio_path(portfolio_items) %>
+
 <%end%>
