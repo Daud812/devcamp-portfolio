@@ -1,7 +1,9 @@
 class PortfoliosController < ApplicationController
   
     def index
-        @portfolio=Portfolio.all
+        @portfolio=Portfolio.ruby
+        
+
     end
 
     def new
