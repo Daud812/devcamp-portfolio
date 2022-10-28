@@ -1,4 +1,5 @@
 class Portfolio < ApplicationRecord
+    include Placeholder
     extend FriendlyId
     friendly_id :titel ,use: :slugged
 
@@ -14,8 +15,8 @@ class Portfolio < ApplicationRecord
     #set defaults value of an attribute
     after_initialize :set_default
     def set_default
-        self.main_image ||= "https://via.placeholder.com/600x400"
-        self.thumb_image ||= "https://via.placeholder.com/350x200"
+        self.main_image ||= Placeholder.image_generator(height: '600',width: '400')
+        self.thumb_image ||= Placeholder.image_generator(height: '350',width: '250')
     end
    
 
