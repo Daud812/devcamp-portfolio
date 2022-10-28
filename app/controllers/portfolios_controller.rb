@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   
     def index
-        @portfolio=Portfolio.ruby
+        @portfolio=Portfolio.all
         
 
     end
