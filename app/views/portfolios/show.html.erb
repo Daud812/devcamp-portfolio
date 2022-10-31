@@ -6,3 +6,7 @@
 <p><%=@portfolio.body %></p>
 <p><%=image_tag @portfolio.main_image %></p>
 
+<h2>Technologies Used:</h2>
+<% @portfolio.technologies.each do |t|%>
+<p><%=t.name %></p>
+<%end%>

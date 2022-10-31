@@ -2,14 +2,17 @@ class PortfoliosController < ApplicationController
   
     def index
         @portfolio=Portfolio.all
+        
+
     end
 
     def new
     @portfolio = Portfolio.new
+    3.times {@portfolio.technologies.build}
     end
 
     def create
-        @portfolio = Portfolio.new(portfolio_params)
+        @portfolio = Portfolio.new(params.require(:portfolio).permit(:titel,:subtitel, :body,technologies_attributes: [:name]))
         respond_to do |format|
           if @portfolio.save
             format.html { redirect_to portfolios_path, notice: 'Portfolio  created.' }
@@ -53,7 +56,7 @@ class PortfoliosController < ApplicationController
     
 
       def portfolio_params
-        params.require(:portfolio).permit(:titel,:subtitel, :body,)
+        params.require(:portfolio).permit(:titel,:subtitel, :body)
       end
 
 end
