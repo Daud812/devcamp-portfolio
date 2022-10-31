@@ -2,6 +2,7 @@ class Portfolio < ApplicationRecord
     include Placeholder
 
     has_many :technologies
+  accepts_nested_attributes_for :technologies, reject_if: lambda { |attrs| attrs['name'].blank? }  
     #use of slug
     extend FriendlyId
     friendly_id :titel ,use: :slugged
