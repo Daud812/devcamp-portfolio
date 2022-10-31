@@ -1,8 +1,11 @@
 class Portfolio < ApplicationRecord
     include Placeholder
+
+    has_many :technologies
+    #use of slug
     extend FriendlyId
     friendly_id :titel ,use: :slugged
-
+    #validation
     validates_presence_of :titel, :body
 
     #method to query data on condition base
