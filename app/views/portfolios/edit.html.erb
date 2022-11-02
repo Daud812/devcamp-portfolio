@@ -1,25 +1,5 @@
 <p id="notice"><%= notice %></p>
 <h1>Edit this Portfolio Item</h1>
 
-<%= form_with(model: @portfolio, local: true) do |form| %>
-   
+<%= render 'form',portfolio: @portfolio %>
 
-  <div class="field">
-    <%= form.label :titel %>
-    <%= form.text_field :titel, id: :portfolio_titel %>
-  </div>
-
-  <div class="field">
-    <%= form.label :subtitel %>
-    <%= form.text_field :subtitel, id: :portfolio_subtitel %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :portfolio_body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

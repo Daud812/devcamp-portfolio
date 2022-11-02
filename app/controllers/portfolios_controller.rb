@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  
+  layout "portfolio"
     def index
         @portfolio=Portfolio.all
         
@@ -24,6 +24,7 @@ class PortfoliosController < ApplicationController
 
     def edit
       @portfolio = Portfolio.friendly.find(params[:id])
+      
     end
    
     def update
