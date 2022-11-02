@@ -1,0 +1,7 @@
+
+<h4><%=link_to portfolio.titel,portfolio_show_path(portfolio) %></h4>
+<p><%=portfolio.subtitel %></p>
+<p><%=portfolio.body %></p>
+<p><%= image_tag portfolio.thumb_image if !portfolio.thumb_image.nil?%></p>
+<%=link_to "Edit",edit_portfolio_path(portfolio) %>
+<%=link_to "Destroy",portfolio_path(portfolio),method: :delete,data:{confirm:'are you sure?'} %>
