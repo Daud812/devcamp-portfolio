@@ -5,7 +5,12 @@ extend ActiveSupport::Concern
     end
     
     def guest_user
-        OpenStruct.new(name:"ahmad raza",first_name:"ahmd",last_name:"raza",email:"asdf@asdf.com")
+        guest= GuestUser.new
+        guest.name="ammad Ibraheem"
+        guest.first_name="ammad"
+        guest.last_name="Ibraheem"
+        guest.email="Dawood123@gmail.com"
+        guest
     end
 
 end
