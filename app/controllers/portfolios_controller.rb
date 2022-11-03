@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   layout "portfolio"
-  access all: [:show, :index], user: {except: [:destroy,:new,:create,:edit,:update]}, site_admin: :all
+  # access all: [:show, :index], user: {except: [:destroy,:new,:create,:edit,:update]}, site_admin: :all
 
 
 
